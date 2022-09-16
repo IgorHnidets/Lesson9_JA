@@ -4,6 +4,7 @@ package JDBC.services.impl;
 import JDBC.dao.UserDao;
 import JDBC.entiti.User;
 import JDBC.exceptions.IncorectCredentialException;
+import JDBC.exceptions.UserAlreadyExistException;
 import JDBC.models.UserCredentials;
 import JDBC.services.UserService;
 
@@ -38,8 +39,12 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public void save(User user) {
+    public void save(User user) throws UserAlreadyExistException {
         try {
+            Optional<User> byEmail = userDao.getbyEmail(user.getEmail());
+            if (byEmail.isPresent()){
+                throw new UserAlreadyExistException();
+            }
             userDao.insert(user);
         } catch (SQLException e) {
             throw new RuntimeException(e);
