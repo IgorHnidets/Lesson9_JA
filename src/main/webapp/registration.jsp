@@ -12,7 +12,7 @@
 
     <h2 class="login-header">Sign Up</h2>
 
-    <form class="login-container" action="registration" method="post" onsubmit="handleregister(event)">
+    <form class="login-container" onsubmit="handleregister(event)">
         <p><input type="text" id="first_name" name="firstname" placeholder="First name"></p>
         <p><input type="text" id="last_name" name="lastname" placeholder="Last name"></p>
         <p><input type="email" id="email" name="email" placeholder="Email"></p>
@@ -26,6 +26,6 @@
 
 
 
-<script src="js/registr.js"></script>
+<script src="js/registration.js"></script>
 </body>
 </html>

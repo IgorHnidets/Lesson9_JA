@@ -40,7 +40,6 @@ public class RegistrationServlet extends HttpServlet {
 
         
 //        FOR JAVASCRIPT
-        
         BufferedReader reader = req.getReader();
         Gson gson = new Gson();
         User user = gson.fromJson(reader, User.class);
