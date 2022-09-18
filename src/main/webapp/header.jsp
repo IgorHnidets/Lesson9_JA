@@ -62,8 +62,6 @@
                     <a href="logOut">Logout</a>
                 </button>
 
-                <%--                </span>--%>
-                <%--                <button style="display: <%=name != null ? "inline" : "none"%>" type="button" class="btn btn-warning"><a href="logout">Logout</a></button>--%>
             </div>
         </div>
     </div>

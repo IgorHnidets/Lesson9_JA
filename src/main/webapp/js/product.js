@@ -1,8 +1,9 @@
 const PRODUCT_ENDPOINT = 'product';
 const createCard = (product) => `
-                <div class="col">
-                <div class="card shadow-sm">
-                <img src="${product.image}" alt="product" width="250" height="250">
+         
+         <div class="col"
+             <div class="card shadow-sm">
+                <img src="${product.image}" alt="product" >
 
                 <div class="card-body">
                     <p class="card-text" >${product.name}</p>
@@ -11,12 +12,13 @@ const createCard = (product) => `
                             <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
                             <button type="button" class="btn btn-sm btn-outline-success">
                                 <i class="fa-sharp fa-solid fa-basket-shopping"></i>                          
-                                 </button>
+                            </button>
                         </div>
                         <span class="text-muted">${product.price}</span>
                     </div>
                 </div>
-                </div>
+             </div>
+         </div>
 `
 
 
@@ -30,7 +32,7 @@ function saveProduct(event) {
     });
 
     console.log(productObject);
-    productObject.image = null;
+    // productObject.image = null;
 
 
     const sendData = async (data) => {

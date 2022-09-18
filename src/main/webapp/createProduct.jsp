@@ -25,7 +25,7 @@
     </div>
     <div class="mb-3">
         <label for="image" class="form-label">Preview Image</label>
-        <input  type="file" class="form-control" id="image" name="image" placeholder="Image">
+        <input  type="text" class="form-control" id="image" name="image" placeholder="Image">
     </div>
 
         <div id="alert" hidden="hidden" class="alert alert-danger" role="alert">
