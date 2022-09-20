@@ -9,4 +9,5 @@ import java.util.Optional;
 public interface UserDao {
     Optional<User> getbyEmail(String email) throws SQLException;
     void insert(User user) throws SQLException;
+    Optional<User> getbyId(int id) throws SQLException;
 }

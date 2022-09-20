@@ -36,7 +36,7 @@ public class LogInServlet extends HttpServlet {
             session.setAttribute("userName", user.getFirstname());
             session.setAttribute("userRole",user.getRole().name());
             session.setAttribute("userId",user.getId());
-            resp.sendRedirect("index.jsp");
+            resp.sendRedirect("user");
         } catch (IncorectCredentialException e) {
             e.printStackTrace();
 //            Чогось зникають артефакти

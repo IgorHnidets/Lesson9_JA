@@ -1,17 +1,19 @@
 const PRODUCT_ENDPOINT = 'product';
 const createCard = (product) => `
-         
-         <div class="col"
-             <div class="card shadow-sm">
-                <img src="${product.image}" alt="product" >
+
+         <div class="col">
+             <div class="card shadow-sm" style="max-height: 400px">
+                <img src="${product.image}" alt="product" width="250" height="250" style="margin: 0 auto" >
 
                 <div class="card-body">
                     <p class="card-text" >${product.name}</p>
                     <div class="d-flex justify-content-between align-items-center">
                         <div class="btn-group">
+                        <a href="product?id=${product.id}">
                             <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                        </a>
                             <button type="button" class="btn btn-sm btn-outline-success">
-                                <i class="fa-sharp fa-solid fa-basket-shopping"></i>                          
+                                <i class="fa-sharp fa-solid fa-basket-shopping"></i>
                             </button>
                         </div>
                         <span class="text-muted">${product.price}</span>
@@ -70,6 +72,7 @@ function getAllProducts() {
        displayCards(json)
    })
 }
+
 
 
 function displayCards(products) {

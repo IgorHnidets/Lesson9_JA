@@ -5,6 +5,7 @@ import JDBC.dao.UserDao;
 import JDBC.entiti.User;
 import JDBC.exceptions.IncorectCredentialException;
 import JDBC.exceptions.UserAlreadyExistException;
+import JDBC.exceptions.UserNotFoundException;
 import JDBC.models.UserCredentials;
 import JDBC.services.UserService;
 
@@ -52,6 +53,17 @@ public class UserServiceImpl implements UserService {
 
     }
 
+    @Override
+    public User getById(int id) throws UserNotFoundException, SQLException {
+            Optional<User> user = userDao.getbyId(id);
+
+            if (user.isPresent()) {
+                return user.get();
+            }
+            throw new UserNotFoundException();
+        }
+    }
+
 //    @Override
 //    public void save(Car user) {
 //        try {
@@ -69,4 +81,4 @@ public class UserServiceImpl implements UserService {
 //            e.printStackTrace();
 //        }
 //    }
-}
+

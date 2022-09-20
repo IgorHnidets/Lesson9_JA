@@ -37,7 +37,7 @@ public class ProductServiceImpl implements ProductService {
                 return product.get();
             }
         } catch (SQLException e) {
-            throw new RuntimeException(e);
+            e.printStackTrace();
         }
         return null;
     }

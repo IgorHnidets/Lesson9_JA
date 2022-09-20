@@ -1,5 +1,6 @@
 package JDBC.mappers;
 
+import JDBC.entiti.Product;
 import JDBC.entiti.Role;
 import JDBC.entiti.User;
 
@@ -21,5 +22,6 @@ public class UserMapper {
         }
         return user;
     }
+
 
 }
