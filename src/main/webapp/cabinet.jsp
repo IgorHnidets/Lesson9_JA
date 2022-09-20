@@ -9,9 +9,13 @@
 <%
     UserDTO user = (UserDTO) request.getAttribute("user");
 %>
-<div>
-    <div>
+<div style="padding: 50px 100px;">
+    <h1>My profile</h1>
+    <br>
+    <div style=" font-size: 24px">
         <b>Name: </b> <span><%= user.getFirstName() + " " + user.getLastName()  %></span>
+        <br>
+        <br>
         <b>Email: </b> <span><%= user.getEmail() %></span>
 
     </div>

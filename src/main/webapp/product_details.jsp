@@ -20,12 +20,13 @@
         <h3 style="font-size: 38px; padding-top: 1%; color: #007214"><%=product.getPrice()%>$</h3>
         <a href="#" style="text-decoration: none"><button class="byton">Buy product</button></a>
     </div>
-    <div style="padding-top: 12%; padding-left: 5%;padding-right: 4%">
-        <h2 style="font-size: 30px;padding-left: 4%"><%=product.getDescription()%></h2>
+    <div style="padding-top: 12%; padding-left: 45%;padding-right: 4%">
+        <h2 style="font-size: 30px;">Product Description</h2>
         <hr>
-        <p style="font-size: 20px"></p>
+        <p style="font-size: 20px;"><%=product.getDescription()%></p>
         <hr>
     </div>
+
 </div>
 
 </body>

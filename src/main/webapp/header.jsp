@@ -1,4 +1,4 @@
-
+<%@ page import="JDBC.dto.UserDTO" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -48,8 +48,8 @@
                     }else {
                     }
                 %>
-
                 <span style="display: <%= name == null ? "inline" : "none"%> ">
+
                 <button type="button" class="btn btn-outline-light me-2">
                     <a href="login.jsp">Login</a>
                 </button>
