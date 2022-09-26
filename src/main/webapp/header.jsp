@@ -23,7 +23,7 @@
                 <li><a href="index.jsp" class="nav-link px-2 text-white">Home</a></li>
                 <li><a href="user" class="nav-link px-2 text-white">Cabinet</a></li>
                 <li><a href="bucket.jsp" class="nav-link px-2 text-white">Bucket</a></li>
-                <li><a href="createProduct.jsp" class="nav-link px-2 text-white">Create product</a></li>
+                <li><a id="create" href="createProduct.jsp" class="nav-link px-2 text-white">Create product</a></li>
                 <li><a href="#" class="nav-link px-2 text-white">Contacts</a></li>
             </ul>
 
@@ -43,6 +43,7 @@
             <div class="text-end">
                 <%
                     String name = (String) session.getAttribute("userName");
+                    String role = (String) session.getAttribute("userRole");
                     if (name == null){
                         out.print("");
                     }else {
@@ -67,5 +68,18 @@
         </div>
     </div>
 </header>
+<script>
+    const role = '<%=role%>';
+    console.log(role);
+    if(role !== 'ADMIN'){
+        document.getElementById("create").setAttribute("hidden","hidden");
+    }
+    const item = localStorage.getItem("userId");
+    const userIdFromSession = <%=session.getAttribute("userId")%>
+    if (userIdFromSession !== item){
+        localStorage.setItem('userId', userIdFromSession);
+    }
+
+</script>
 </body>
 </html>

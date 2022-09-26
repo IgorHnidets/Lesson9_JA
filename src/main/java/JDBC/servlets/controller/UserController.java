@@ -1,5 +1,6 @@
 package JDBC.servlets.controller;
 
+import JDBC.dao.impl.BucketDaoImpl;
 import JDBC.dao.impl.UserDaoImpl;
 import JDBC.dto.UserDTO;
 import JDBC.entiti.User;
@@ -22,7 +23,7 @@ public class UserController extends HttpServlet {
     private final UserService userService;
 
     public UserController() {
-        userService = new UserServiceImpl(new UserDaoImpl());
+        userService = new UserServiceImpl(new UserDaoImpl(), new BucketDaoImpl());
     }
 
     @Override

@@ -1,6 +1,7 @@
 package JDBC.services.impl;
 
 
+import JDBC.dao.BucketDao;
 import JDBC.dao.UserDao;
 import JDBC.entiti.User;
 import JDBC.exceptions.IncorectCredentialException;
@@ -14,9 +15,11 @@ import java.util.Optional;
 
 public class UserServiceImpl implements UserService {
     private final UserDao userDao;
+    private final BucketDao bucketDao;
 
-    public UserServiceImpl(UserDao userDao) {
+    public UserServiceImpl(UserDao userDao, BucketDao bucketDao) {
         this.userDao = userDao;
+        this.bucketDao = bucketDao;
     }
 
 
@@ -46,9 +49,10 @@ public class UserServiceImpl implements UserService {
             if (byEmail.isPresent()){
                 throw new UserAlreadyExistException();
             }
-            userDao.insert(user);
+            int saveId = userDao.insert(user);
+            bucketDao.create(saveId);
         } catch (SQLException e) {
-            throw new RuntimeException(e);
+            e.printStackTrace();
         }
 
     }
@@ -64,21 +68,5 @@ public class UserServiceImpl implements UserService {
         }
     }
 
-//    @Override
-//    public void save(Car user) {
-//        try {
-//            carDao.save(user);
-//        } catch (SQLException e){
-//           throw new  e.printStackTrace();
-//        }
-//    }
-//
-//    @Override
-//    public void remove(int id) {
-//        try {
-//            carDao.remove(id);
-//        } catch (SQLException e){
-//            e.printStackTrace();
-//        }
-//    }
+
 

@@ -1,5 +1,6 @@
 package JDBC.servlets;
 
+import JDBC.dao.impl.BucketDaoImpl;
 import JDBC.dao.impl.UserDaoImpl;
 import JDBC.entiti.User;
 import JDBC.exceptions.UserAlreadyExistException;
@@ -14,14 +15,13 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.PrintWriter;
 
 @WebServlet("/registration")
 public class RegistrationServlet extends HttpServlet {
 
     private final UserService userService;
     public RegistrationServlet() {
-       userService =  new UserServiceImpl(new UserDaoImpl());
+       userService =  new UserServiceImpl(new UserDaoImpl(), new BucketDaoImpl());
     }
 
     @Override

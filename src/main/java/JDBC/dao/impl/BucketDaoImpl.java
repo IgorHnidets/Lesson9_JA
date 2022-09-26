@@ -30,7 +30,7 @@ public class BucketDaoImpl implements BucketDao {
     @Override
     public List<Product> getAllProducts(int bucketId) throws SQLException {
         PreparedStatement statement = connection.prepareStatement(
-                "SELECT  * FROM bucket_product bp INNER JOIN product p on bp.product_id = p.id WHERE bp.bucket_id = ?");
+                "SELECT p.id,p.name,p.description,p.price,p.image FROM bucket_product bp INNER JOIN product p on bp.product_id = p.id WHERE bp.bucket_id = ?");
         statement.setInt(1,bucketId);
         ResultSet resultSet = statement.executeQuery();
         List<Product> products = ProductMapper.mapProductsFromResultSet(resultSet);
@@ -50,7 +50,7 @@ public class BucketDaoImpl implements BucketDao {
 
     @Override
     public void removeProduct(int bucketId, int productId) throws SQLException {
-        PreparedStatement statement = connection.prepareStatement("DELETE from bucket_product WHERE product_id = ? AND bucket_id = ?");
+        PreparedStatement statement = connection.prepareStatement("DELETE from bucket_product WHERE bucket_id = ? AND product_id = ?");
         statement.setInt(1,bucketId);
         statement.setInt(2,productId);
         statement.execute();

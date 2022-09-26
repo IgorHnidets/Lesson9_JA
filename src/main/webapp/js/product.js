@@ -1,4 +1,6 @@
 const PRODUCT_ENDPOINT = 'product';
+const BUCKET_ENDPOINT = 'bucket';
+const userId = localStorage.getItem('userId')
 const createCard = (product) => `
 
          <div class="col">
@@ -12,7 +14,7 @@ const createCard = (product) => `
                         <a href="product?id=${product.id}">
                             <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
                         </a>
-                            <button type="button" class="btn btn-sm btn-outline-success">
+                            <button onclick="addProductToBucket(${product.id})" type="button" class="btn btn-sm btn-outline-success">
                                 <i class="fa-sharp fa-solid fa-basket-shopping"></i>
                             </button>
                         </div>
@@ -81,5 +83,24 @@ function displayCards(products) {
         container.innerHTML += createCard(product)
 
     }
+}
+
+function addProductToBucket(productId) {
+    if (!userId){
+        window.location.href = 'login.jsp';
+        return;
+    }
+    fetch(BUCKET_ENDPOINT, {
+            method:'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                bucketId: userId,
+                productId:productId
+            })
+        }).then((result) => {
+            alert('Added to bucket')
+    })
 }
 getAllProducts();
