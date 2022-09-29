@@ -16,11 +16,15 @@ public class AuthUserFilter implements Filter {
     @Override
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
         HttpServletResponse response = (HttpServletResponse) servletResponse;
-        SessionParams sessionValues = FilterHelper.getSessionValues(servletRequest);
-        if (sessionValues.userId != null || sessionValues.userRole != null){
+        HttpServletRequest request = (HttpServletRequest) servletRequest;
+        HttpSession session = request.getSession();
+        Object userId = session.getAttribute("userId");
+        Object role = session.getAttribute("userRole");
+//        SessionParams sessionValues = FilterHelper.getSessionValues(servletRequest);
+        if (userId != null || role != null){
             filterChain.doFilter(servletRequest,servletResponse);
         } else {
-            response.sendRedirect("login.jsp");
+            response.sendRedirect("/Lesson6_war_exploded/login.jsp");
         }
     }
 }

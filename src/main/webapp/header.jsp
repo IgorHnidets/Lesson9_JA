@@ -49,7 +49,9 @@
                     }else {
                     }
                 %>
+
                 <span style="display: <%= name == null ? "inline" : "none"%> ">
+
 
                 <button type="button" class="btn btn-outline-light me-2">
                     <a href="login.jsp">Login</a>
@@ -60,10 +62,12 @@
                 </button>
                 </span>
 
-                <button style="display: <%= name != null ? "inline" : "none"%> " type="button" class="btn btn-warning">
-                    <a href="logOut">Logout</a>
-                </button>
-
+                <div style="display: <%= name != null ? "flex" : "none"%> ">
+                    <h3 style="margin-right: 50px" >Hi, <%=name%></h3>
+                    <button  type="button" class="btn btn-warning" >
+                        <a style="text-decoration: none" href="logOut">Logout</a>
+                    </button>
+                </div>
             </div>
         </div>
     </div>
